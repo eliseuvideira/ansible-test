@@ -1,0 +1,4 @@
+---
+- name: Run Handler
+  debug:
+    msg: "{{ variable }}"

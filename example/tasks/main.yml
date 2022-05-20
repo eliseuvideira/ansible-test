@@ -1,0 +1,19 @@
+---
+- name: Before Running Task
+  debug:
+    msg: "{{ variable }}"
+
+- name: Running Task
+  shell: |
+    #!/bin/sh
+    echo "Something is wrong"
+  register: check
+  changed_when: check.stdout == "Something is wrong"
+  notify: Run Handler
+
+- name: Notify Handlers
+  meta: flush_handlers
+
+- name: After Task
+  debug:
+    msg: "{{ variable }}"

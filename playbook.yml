@@ -1,0 +1,11 @@
+- name: Do Something
+  hosts: localhost
+  tasks:
+    - name: Run Role
+      include_role:
+        name: example
+      vars:
+        variable: "{{ item }}"
+      loop:
+        - 1
+        - 2
